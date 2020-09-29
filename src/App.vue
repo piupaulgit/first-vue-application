@@ -24,7 +24,7 @@ export default {
     };
   },
   methods: {
-    changeName: function (name) {
+    changeName(name) {
       this.userName = name;
     },
     updateEmail(email) {
