@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <child name="Piu paul"></child>
+    <child v-bind:name="userName"></child>
+    <button v-on:click="changeName('Deep')">click to change name</button>
   </div>
 </template>
 
@@ -10,6 +11,16 @@ import Child from "./components/Child";
 export default {
   name: "App",
   components: { Child },
+  data() {
+    return {
+      userName: "Piu Paul",
+    };
+  },
+  methods: {
+    changeName: function (name) {
+      this.userName = name;
+    },
+  },
 };
 </script>
 
