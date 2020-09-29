@@ -1,8 +1,14 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <child v-bind:name="userName"></child>
-    <button v-on:click="changeName('Deep')">click to change name</button>
+    <child
+      v-bind:name="userName"
+      v-on:updateEmail="updateEmail($event)"
+    ></child>
+    <button v-on:click="changeName('Deep')">
+      click to change name(from parent to child)
+    </button>
+    <p>This name is coming from child : {{ emailAddress }}</p>
   </div>
 </template>
 
@@ -14,11 +20,15 @@ export default {
   data() {
     return {
       userName: "Piu Paul",
+      emailAddress: "piu@paul.com",
     };
   },
   methods: {
     changeName: function (name) {
       this.userName = name;
+    },
+    updateEmail(email) {
+      this.emailAddress = email;
     },
   },
 };
