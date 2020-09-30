@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" />
     <child
       v-bind:name="userName"
       v-on:updateEmail="updateEmail($event)"
@@ -8,15 +8,16 @@
     <button v-on:click="changeName('Deep')">
       click to change name(from parent to child)
     </button>
-    <p>This name is coming from child : {{ emailAddress }}</p>
+    <p>This name is coming from child : {{ emailAddress }}</p> -->
+    <front></front>
   </div>
 </template>
 
 <script>
-import Child from "./components/Child";
+import Front from "./components/Front";
 export default {
   name: "App",
-  components: { Child },
+  components: { Front },
   data() {
     return {
       userName: "Piu Paul",
@@ -36,11 +37,14 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "EB Garamond", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+* {
+  margin: 0;
+  padding: 0;
 }
 </style>
