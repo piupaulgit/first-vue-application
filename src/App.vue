@@ -9,15 +9,14 @@
       click to change name(from parent to child)
     </button>
     <p>This name is coming from child : {{ emailAddress }}</p> -->
-    <front></front>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Front from "./components/Front";
 export default {
   name: "App",
-  components: { Front },
+  components: {},
   data() {
     return {
       userName: "Piu Paul",
