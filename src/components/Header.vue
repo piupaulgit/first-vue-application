@@ -3,26 +3,34 @@
     <span class="profile-img">
       <img v-bind:src="userInfo.avatar_url" />
     </span>
+    <h1>{{ userInfo.name }}</h1>
     <h2>
       <a :href="userInfo.html_url" target="_blank">@{{ userInfo.login }} </a>
     </h2>
+    <p class="bio">{{ userInfo.bio }}</p>
 
+    <span class="joined"
+      ><i class="fas fa-briefcase"></i> {{ userInfo.company }}</span
+    >
+    <span class="joined"
+      ><i class="fas fa-map-marker-alt"></i> {{ userInfo.location }}</span
+    >
     <span class="joined"
       ><i class="far fa-calendar-alt"></i> Joined on:
       {{ userInfo.created_at }}</span
     >
-    <p class="bio">{{ userInfo.bio }}</p>
+
     <div class="more-info">
       <div class="each-info">
         <h3>{{ userInfo.public_repos }}</h3>
         <p>REPOSITORIES</p>
       </div>
       <div class="each-info">
-        <h3></h3>
+        <h3>{{ userInfo.followers }}</h3>
         <p>FOLLOWERS</p>
       </div>
       <div class="each-info">
-        <h3></h3>
+        <h3>{{ userInfo.following }}</h3>
         <p>FOLLOWING</p>
       </div>
     </div>
@@ -57,8 +65,13 @@ export default {
 .profile-img img {
   max-width: 100%;
 }
+h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
 h2 {
   color: #fff;
+  margin-bottom: 10px;
 }
 h2 a {
   color: #fff;
@@ -72,9 +85,10 @@ h2 a {
   border-radius: 4px;
   font-size: 12px;
   margin-top: 20px;
+  margin-right: 10px;
   display: inline-block;
 }
-.joined .far {
+.joined i {
   margin-right: 5px;
 }
 .more-info {
@@ -90,6 +104,13 @@ h2 a {
   min-width: 200px;
   min-height: 141px;
   margin-right: 29px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.each-info h3 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 .each-info:last-child {
   margin-right: 0;

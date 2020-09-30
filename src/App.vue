@@ -36,7 +36,7 @@ export default {
 
 <style>
 #app {
-  font-family: "EB Garamond", serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
