@@ -11,7 +11,11 @@ export default {
     };
   },
   created() {
-    console.log(this.$route.params.userName);
+    this.axios
+      .get(`https://api.github.com/users/${this.username}`)
+      .then((res) => {
+        console.log(res);
+      });
   },
 };
 </script>
