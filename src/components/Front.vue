@@ -1,5 +1,6 @@
 <template>
   <div class="front-page-holder">
+    <child></child>
     <div class="middle-section">
       <i class="fab fa-github-square"></i>
       <h1>Find Your GitProfile</h1>
@@ -8,8 +9,10 @@
   </div>
 </template>
 <script>
+import Child from "./Child";
 export default {
   name: "Front",
+  components: { Child },
 };
 </script>
 <style scoped>
