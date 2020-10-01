@@ -4,7 +4,9 @@
     <div class="middle-section">
       <i class="fab fa-github-square"></i>
       <h1>Find Your GitProfile</h1>
-      <input type="text" placeholder="Username" />
+      <form @submit.stop.prevent="searchProfile(name)">
+        <input type="text" placeholder="Username" v-model="name" />
+      </form>
     </div>
   </div>
 </template>
@@ -13,6 +15,17 @@ import Child from "./Child";
 export default {
   name: "Front",
   components: { Child },
+  data() {
+    return {
+      name: "",
+    };
+  },
+  methods: {
+    searchProfile(name) {
+      this.name = name;
+      this.$router.push(`/profile/${this.name}`);
+    },
+  },
 };
 </script>
 <style scoped>
