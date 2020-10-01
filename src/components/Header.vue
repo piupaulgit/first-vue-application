@@ -9,15 +9,15 @@
     </h2>
     <p class="bio">{{ userInfo.bio }}</p>
 
-    <span class="joined"
+    <span class="joined" v-if="userInfo.company"
       ><i class="fas fa-briefcase"></i> {{ userInfo.company }}</span
     >
-    <span class="joined"
+    <span class="joined" v-if="userInfo.location"
       ><i class="fas fa-map-marker-alt"></i> {{ userInfo.location }}</span
     >
-    <span class="joined"
+    <span class="joined" v-if="userInfo.created_at"
       ><i class="far fa-calendar-alt"></i> Joined on:
-      {{ userInfo.created_at }}</span
+      {{ userInfo.created_at | formatDate }}</span
     >
 
     <div class="more-info">
@@ -74,7 +74,7 @@ h2 {
   margin-bottom: 10px;
 }
 h2 a {
-  color: #fff;
+  color: #23f5eb;
 }
 .bio {
   padding: 15px 0;
