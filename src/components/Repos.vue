@@ -27,6 +27,10 @@ export default {
 };
 </script>
 <style scoped>
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
 ul {
   padding: 0;
   margin: 0;
@@ -62,9 +66,5 @@ h3 + p {
 }
 h3 i {
   margin-right: 10px;
-}
-.container {
-  max-width: 90%;
-  margin: 0 auto;
 }
 </style>
