@@ -31,17 +31,18 @@
         <div class="col-md-8 mx-auto">
           <div class="row">
             <div class="col-md-4">
-              <div
-                class="each-info"
-                data-toggle="modal"
-                data-target="#exampleModal"
-              >
+              <div class="each-info">
                 <h3>{{ userInfo.public_repos }}</h3>
                 <p>REPOSITORIES</p>
               </div>
             </div>
             <div class="col-md-4">
-              <div class="each-info">
+              <div
+                class="each-info"
+                data-toggle="modal"
+                data-target="#exampleModal"
+                v-on:click="showFollwers()"
+              >
                 <h3>{{ userInfo.followers }}</h3>
                 <p>FOLLOWERS</p>
               </div>
@@ -77,7 +78,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body text-dark">
+            <ul>
+              <li v-for="follower in followers" :key="follower.id">
+                <img v-bind:src="follower.avatar_url" />
+                <p>{{ follower.login }}</p>
+              </li>
+            </ul>
+          </div>
           <div class="modal-footer">
             <button
               type="button"
@@ -97,8 +105,25 @@
 export default {
   name: "Header",
   props: ["userInfo"],
+  data() {
+    return {
+      followers: [],
+    };
+  },
   mounted() {
     console.log(this.userInfo);
+  },
+  methods: {
+    showFollwers() {
+      this.axios
+        .get(`${this.userInfo.followers_url}`)
+        .then((res) => {
+          this.followers = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
