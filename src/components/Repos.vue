@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container repo-container">
     <h2>Top Repos</h2>
     <ul>
       <li v-for="repo in reposInfo" :key="repo.name">
@@ -27,6 +27,9 @@ export default {
 };
 </script>
 <style scoped>
+.repo-container {
+  padding: 80px 0;
+}
 .container {
   max-width: 90%;
   margin: 0 auto;
@@ -56,6 +59,8 @@ h2 {
   font-size: 40px;
   text-align: left;
   color: #333;
+  position: relative;
+  z-index: 9;
 }
 h3 {
   margin-bottom: 13px;
